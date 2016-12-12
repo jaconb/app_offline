@@ -1,0 +1,32 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="User info">        
+    <ion-content class="padding">
+        <div class="lsit">
+             <ion-item class="item item-icon-left item-icon-right" ng-click="toReName()">
+                <i class="icon ion-person"></i>
+                {{userName}}
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+             <ion-item class="item item-icon-left  item-icon-right" ng-click="toRePwd()">
+                <i class="icon ion-locked"></i>
+                Reset Password
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+        </div>
+        
+        <button class="button button-block button-assertive" ng-if="userRole != '0'" ng-click="disableUser()">
+            Disable
+        </button>
+        <button class="button button-block button-balanced" ng-if="userRole == '0'" ng-click="enableUser()">
+            Enable
+        </button>
+        <button class="button button-block button-assertive" ng-click="deleteUser()">
+            Delete
+        </button>
+    </ion-content>
+</ion-view>

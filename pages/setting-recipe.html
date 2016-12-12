@@ -1,0 +1,34 @@
+<ion-view view-title="Recipe Setting">
+    <ion-content class="padding">
+        <!--<ion-item class="item item-icon-right" ng-click="">
+                Recipe1
+            <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>-->
+        
+        <div class="list">
+            <a class="item item-divider item-icon-right" ng-click="toAddTerm()">
+                Term
+                <span class="item-note">
+                    Add Term
+                </span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </a>
+
+            <a class="item" href="#" ng-repeat="num in [1,2,3]">
+                if Sensor 1 > 10 And/Or Sensor 2 < 5
+            </a>
+            <a class="item item-divider item-icon-right" href="#"  ng-click="toAddAction()">
+                Actions
+                <span class="item-note">
+                    Add Action
+                </span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </a>
+
+            <a class="item" href="#" ng-repeat="num in [1,2,3]">
+                Light, Brightness change to 10, duratuib 10 min
+            </a>
+        </div>
+    </ion-content>
+</ion-view>
+

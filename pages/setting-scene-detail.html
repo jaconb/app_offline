@@ -1,0 +1,25 @@
+<ion-view view-title="Scene Set Detail">
+    <ion-content class="padding">
+        <div class="item item-bottom item-button-right">
+                <span>
+                    {{scene_name}}
+                </span>
+            <button class="button delete-button button-assertive" ng-click="deleteRegionScene()">
+                &nbsp;delete&nbsp;
+            </button>
+        </div>
+        <ion-list>
+            Scene Members :
+            <div ng-if="sceneMemberList.length != 0" class="item item-button-right" ng-repeat="device in sceneMemberList">
+                {{device.device_name}}
+                <button class="button button-assertive" ng-click="remove(device)">remove</button>
+            </div>
+
+            <div ng-if="!sceneMemberList || sceneMemberList.length == 0" class="item item-button-right">
+                There is no device
+            </div>
+                        
+            <button class="button button-block button-balanced" ng-click="toAddDevice()">Add Device</button>            
+        </ion-list>
+    </ion-content>
+</ion-view>

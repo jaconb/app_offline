@@ -1,0 +1,93 @@
+<ion-view view-title="Add Action">
+    <ion-content class="padding">
+       <div class="list">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    type
+                </div>
+                <select ng-model="my.type" ng-options="type.name for type in typeList" ng-change="typeChange()"></select>
+            </label>
+            
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    {{my.type.name}}
+                </div>
+                <select ng-if="my.type.key == 'region'" ng-model="my.obj" ng-options="object.name for object in my.objList"></select>
+                <select ng-if="my.type.key == 'device'" ng-model="my.obj" ng-options="object.device_name for object in my.objList"></select>
+                <select ng-if="my.type.key == 'group'" ng-model="my.obj" ng-options="object.group_name for object in my.objList"></select>
+                <select ng-if="my.type.key == 'scene'" ng-model="my.obj" ng-options="object.scene_name for object in my.objList"></select>
+            </label>
+            
+            <label class="item item-input item-select"> 
+                <div class="input-label">
+                    Target
+                </div>
+                <select ng-model="my.target" ng-options="target.name for target in my.type.targetList"></select>
+            </label>
+            <div ng-if="my.target.key == 'channel'">
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Channel
+                    </div>
+                    <select ng-model="my.channel" ng-options="channel.channel_number for channel in my.channelList"></select>
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="Channel Value" ng-model="my.channelValue">
+                </label>
+            </div>
+            
+            
+            
+            <div ng-if="my.target.key == 'switch'">
+                 <label class="item item-input item-select">
+                    <div class="input-label">
+                        SwitchStatus
+                    </div>
+                    <select  ng-model="my.switchValue">
+                        <option value="00">On</option>
+                        <option value="01">Off</option>
+                    </select>
+                </label>
+            </div>
+            
+            <!--<label class="item item-input">
+                <input type="text" placeholder="DateTime" ng-model="my.dataTime">
+            </label>-->
+            
+            <button class="button button-block button-balanced" ng-click="addAction()">Add Action</button>
+            <!--
+              
+              
+          var action = {
+              type_name: my.type.name,
+              region_name: my.obj.name,
+              device_name: my.obj.device_name,
+              group_name: my.obj.group_name,
+              channel_number: my.channel.channel_number,
+              channel_value: $scope.my.channelValue,
+              switchValue: my.switchValue
+          }
+          
+          
+            -->
+            <div class="list" ng-if="my.sequenceList && my.sequenceList.length > 0">
+                <div class="item" ng-repeat="sequence in my.sequenceList">
+                    <!-- type: 对应type -->
+                    <h>{{sequence.type_name}}</h>
+                    <!-- 对象：对象id -->
+                    <p ng-if="sequence.region_name">name： {{sequence.region_name}}</p>
+                    <p ng-if="sequence.device_name">name： {{sequence.device_name}}</p>
+                    <p ng-if="sequence.group_name">name： {{sequence.group_name}}</p>
+                    <p ng-if="sequence.scene_name">name： {{sequence.scene_name}}</p>
+                    <!-- 动作：1、显示通道number，2、开关显示switch -->
+                    <p ng-if="sequence.target == 'channel'">channel：{{sequence.channel_number}}</p>
+                    <p ng-if="sequence.target == 'channel'">value：{{sequence.channel_value}}</p>
+                    <p ng-if="sequence.target == 'switch'">switch：{{sequence.switchValue}}</p>
+                </div>
+                
+                <button class="button button-block button-balanced" ng-click="addSequence()">Add Sequence</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+

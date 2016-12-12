@@ -1,0 +1,13 @@
+<ion-view view-title="Term Setting">
+    <ion-content class="padding">        
+        <div class="list list-inset">
+            <ion-item class="item item-icon-right" ng-repeat="term in termList" type="item-text-wrap" ng-click="toSetTermDetail(term)">
+                <h2>{{term.cdts_name}}</h2>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+        </div>
+    
+        <button class="button button-block button-balanced" ng-click="toAddTerm()">Add Term</button>
+    </ion-content>
+</ion-view>
+

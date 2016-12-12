@@ -1,0 +1,19 @@
+<ion-view view-title="New Group">
+    <ion-content class="padding">
+        
+       <div class="list list-inset">
+           
+       
+            <label class="item item-input">
+                <input type="text" placeholder="Group Name" ng-model="my.groupName">
+            </label>
+             <label class="item item-input item-select">
+                <div class="input-label">gatewayId</div>
+                <select ng-model="my.gateway" ng-options="gateway.gateway_id for gateway in gateways"></select>
+            </label>
+        </div>
+    
+        <button class="button button-block button-balanced" ng-click="newGroup()">Apply</button>
+    </ion-content>
+</ion-view>
+

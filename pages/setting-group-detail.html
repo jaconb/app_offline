@@ -1,0 +1,20 @@
+<ion-view view-title="Group Set Detail">
+    <ion-content class="padding">
+        <div class="item item-bottom item-button-right">
+                <span>
+                    {{group_name}}
+                </span>
+            <button class="button delete-button button-assertive" ng-click="deleteRegionGroup()">
+                &nbsp;delete&nbsp;
+            </button>
+        </div>
+        <ion-list>
+            Group Members :
+            <div class="item item-button-right" ng-repeat="device in deviceList">
+                {{device.device_name}}
+                <button class="button button-assertive" ng-click="remove(device)">remove</button>
+            </div>
+            <button class="button button-block button-balanced" ng-click="toAddDevice()">Add Device</button>
+        </ion-list>
+    </ion-content>
+</ion-view>

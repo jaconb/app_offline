@@ -1,0 +1,22 @@
+<ion-view view-title="New Regional">
+    <ion-content class="padding">
+        
+        <div class="list">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Gateway
+                </div>
+                <select ng-model="my.gateway" ng-options="gateway.gateway_id for gateway in gatewayList">
+                </select>
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Region Name" ng-model="my.regionName">
+            </label>
+            <div>
+                <button class="button button-block button-balanced" ng-click="apply()">Apply</button>
+            </div>
+        </div>
+        
+    </ion-content>
+</ion-view>
+

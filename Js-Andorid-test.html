@@ -1,0 +1,631 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>测试Js与Android交互</title>
+
+</head>
+<body>
+<script type="text/javascript">
+
+    function f0(){
+        js.getGatewayIDList();
+    }
+
+    function f1(){
+        js.getUserInfo();
+    }
+    function f2(){
+        js.loginout();
+    }
+    function f3(){
+        js.getHeadTitle('mytest');
+    }
+    function f4(){
+        var a = {
+    "table_region":[{
+        "region_name":"jerry_test_0701",
+        "region_switch":"01",
+        "region_value":"NULL",
+        "region_delay":"1000",
+        "gateway_id":"00000001007e170a"
+        }]
+        };
+         a = JSON.stringify(a);
+        js.createRegion(a);
+        }
+
+    function f5(){
+      js.updateRegion();
+    }
+    function f6(){
+        js.queryRegionInfo();
+    }
+    function f7(){
+        var a = {
+        "gateway_id":"00000001007e170a",
+        "region_guid":"42566ce43cf849288438b045dd8b2b94"
+        }
+        a = JSON.stringify(a);
+        js.deleteRegion(a);
+    }
+    function f8(){
+        var a =  {
+            "table_region_device":[{
+                 "region_guid":"f91b90981d404e7bbec90bf3a8d42d0a",
+                 "region_addr":"ff15::9006",
+                 "region_name":"jerry_test",
+                 "table_device_guid":"5583D3A1CC8C4C7E84BCBFAB2B626D66",
+                 "gateway_id":"00000001007e170a",
+                 "device_addr":"fd04:bd3:80e8:3:215:8d00:32:c4bd",
+                 "device_name":"00158d000032c4bd"}
+            ]
+            }
+            a = JSON.stringify(a);
+
+        js.addRegionDevice(a);
+    }
+    function f9(){
+        js.backBtnShowOrNot(0);
+    }
+    function f10(){
+        var a = {
+                "table_region_device":[{
+                    "region_addr":"ff15::9006",
+                     "device_addr":"fd04:bd3:80e8:3:215:8d00:32:c4bd",
+                     "gateway_id":"00000001007e170a"
+                     }
+                     ]
+                }
+        a = JSON.stringify(a);
+        js.deleteRegionDevice(a);
+
+    }
+
+    function f11(){
+        js.updateRegionGroup();
+    }
+    function f12(){
+        var a = {
+                "table_region_group":[{
+                    "region_guid":"a13f93b7da164ceda09a1dbd01a39f72",
+                     }
+                     ]
+                }
+        a = JSON.stringify(a);
+        js.queryRegionGroup(a);
+    }
+
+      function f13(){
+        var a = {
+        "table_region_device":[{
+        "region_guid":"a13f93b7da164ceda09a1dbd01a39f72"
+        }]
+        }
+        a = JSON.stringify(a);
+        js.queryRegionDevice(a);
+        }
+
+    function f14(){
+        var a = {
+        "table_group_members":[
+            {
+               "table_group_guid":"a362b21fd2eb433c8cd5104280864211",
+               "gateway_id":"00000001007e170a"
+            }]
+        }
+        a = JSON.stringify(a);
+        js.queryGroupInfos(a);
+    }
+
+    function f15(){
+        var a = {
+        "table_region_scene":[
+            {
+                "region_guid":"a13f93b7da164ceda09a1dbd01a39f72"
+            }]
+        }
+         a = JSON.stringify(a);
+        js.queryRegionScene(a);
+    }
+   function f16(){
+        js.getSensor("00000001007e170a");
+    }
+    function f17(){
+        js.queryScene();
+    }
+   function f18(){
+
+        var a = {
+            "gateway_id": "00000001007e170a",
+            "region_guid":"a13f93b7da164ceda09a1dbd01a39f72",
+            "start_time":"",
+            "end_time":"",
+            "type":"history",
+            "size":360
+        }
+        a = JSON.stringify(a);
+        js.getChartParamters(a);
+    }
+    function f19(){
+        var a = {
+        "gateway_id":"00000001007e170a",
+        "device_guid":"5583D3A1CC8C4C7E84BCBFAB2B626D66"
+        };
+          a = JSON.stringify(a);
+        js.queryDeviceChannelValue(a);
+    }
+     function f130(){
+        var a = {
+        "table_region_device":[{
+        "gateway_id":"00000001007e170a",
+        "region_value":"08",
+        "region_guid":"a13f93b7da164ceda09a1dbd01a39f72"}]
+        }
+         a = JSON.stringify(a);
+
+        js.getChannelList(a);
+    }
+    function f20(){
+        js.queryAllDeviceDetails();
+    }
+
+    function f21(){
+        var a = {
+        "gateway_id":"00000001007e170a",
+        "group_guid":"e997b5446c864acab07dfff7999ebbf8"
+        }
+         a = JSON.stringify(a);
+        js.queryGroupChannelValue(a);
+    }
+
+    function f22(){
+    var a = {
+            "user_id":"ca09979a-344b-4886-bca5-46c1df554feb",
+            "table_region":[{
+                    "gateway_id":"00000001007e170a",
+                    "region_addr":"ff15::9005",
+                    "region_guid":"26e499a5589e4b3092c608319aa8e20b",
+                    "region_delay":"1",
+                    "region_value":[{
+                        "channel_value":"255",
+                        "channel_number":"1"
+                    }]
+                }]
+            };
+             <!--var a = {-->
+            <!--"user_id":"ca09979a-344b-4886-bca5-46c1df554feb",-->
+            <!--"table_region":[{-->
+                        <!--"region_addr":"ff15::9001",-->
+                    <!--"region_guid":"23285340c2294765927498f83d5a3aff",-->
+                    <!--"region_switch":"01"-->
+                <!--},{-->
+                    <!--"region_guid":"fcf926dcef96483eae7533993a54c781",-->
+                    <!--"region_switch":"00"-->
+                <!--}-->
+                <!--]-->
+            <!--};-->
+        a = JSON.stringify(a);
+        js.controlRegion(a);
+    }
+
+     function f23(){
+        var a = {
+        "table_group":[{
+                "gateway_id":"00000001007e170a",
+                "group_guid":"34777342d6284c67b4a471f5d1c8ca86",
+                "group_addr":"ff15::101d",
+                "group_delay":"1",
+                "group_value":[{
+                    "channel_number":"1",
+                    "channel_value":"16"
+                }]
+            }]
+        };
+        <!--var a = {-->
+        <!--"table_group":[{-->
+                <!--"gateway_id":"00000001007e170a",-->
+                <!--"group_guid":"34777342d6284c67b4a471f5d1c8ca86",-->
+                <!--"group_addr":"ff15::101d",-->
+                <!--"group_delay":"1",-->
+                <!--"group_switch":"01"-->
+            <!--}]-->
+        <!--};-->
+         a = JSON.stringify(a);
+        js.controlGroup(a);
+    }
+     function f24(){
+            var a = {
+                        "table_device":[{
+                        "gateway_id":"00000001007e170a",
+                        "device_guid":"1110D337583C4E18B306368E84AE9639",
+                        "device_addr":"fd04:bd3:80e8:3:215:8d00:32:c4bd",
+                        <!--"device_value":[{-->
+                        <!--"channel_number":"1",-->
+                        <!--"channel_value":"68"-->
+                        <!--}-->
+                        <!--,-->
+                        <!--{"channel_number":"2","channel_value":"255"},-->
+                        <!--{"channel_number":"3","channel_value":"255"},-->
+                        <!--{"channel_number":"4","channel_value":"255"}-->
+                        <!--],-->
+                        "device_switch":"01",
+                        "device_delay":"1",
+                        "device_type":"bulb"
+                        }
+                        ]
+                    };
+             a = JSON.stringify(a);
+            js.controlDevice(a);
+        }
+    function f25(){
+            var a = {
+                    "table_scene":[{
+                            "gateway_id":"00000001007e170a",
+                            "scene_guid":"8ef5b4863a244d36b849129f4ebfe421",
+                            "scene_addr":"ff15::a00e",
+                            "scene_switch":"01"
+                        }]
+                    };
+             a = JSON.stringify(a);
+            js.controlScene(a);
+        }
+
+        function f26(){
+            var a = {
+                    "table_scene":[{
+                            "scene_name":"jerry_Scene_0701",
+                            "gateway_id":"00000001007e170a"
+                        }]
+                    };
+                a = JSON.stringify(a);
+                js.createScene(a);
+        }
+        function f27(){
+            var a = {
+                    "user_id":"12345667",
+                    "table_scene":[{
+                            "scene_guid":"9364789cfd8749cd92fb3f3571bcaafe",
+                            "gateway_id":"00000001007e170a"
+                        }]
+                    };
+                a = JSON.stringify(a);
+                js.deleteScene(a);
+        }
+
+        function f28(){
+            var a = {
+                    "table_region_scene":[{
+                            "region_guid":"7281a0b4bfe9440aade42a5035aaaf65",
+                            "table_scene_guid":"55aaa21b85a842deb91d52fff2d0875d",
+                            "gateway_id":"00000001007e170a",
+                            "scene_addr":"ff15::a00b",
+                            "scene_name":"jerry_Scene_0701"
+                        }]
+                    };
+                a = JSON.stringify(a);
+                js.addRegionScene(a);
+        }
+
+        function f29(){
+            var a = {
+                    "table_scene_members":[{
+                            "table_scene_guid":"a6b83e220c1e41fdb5060ea8911d3554",
+                            "scene_addr":"ff15::a00a",
+                            "device_addr":"fd04:bd3:80e8:3:215:8d00:32:c4bd",
+                            "device_value":[{"channel_number":"1","channel_value":"1"}],
+                            "device_delay":"1",
+                            "device_guid":"2D3AEF63AC3C4D69887582BA584D00EE",
+                            "device_name":"00158d000032c4bd",
+                            "gateway_id":"00000001007e170a"
+                        }]
+                    };
+                a = JSON.stringify(a);
+                js.addSceneMembers(a);
+        }
+        function f30(){
+            var a = {
+                    "table_scene_members":[{
+                    "scene_addr":"ff15::a00b",
+                    "device_addr":"fd04:bd3:80e8:3:215:8d00:32:c4bd",
+                    "gateway_id":"00000001007e170a"
+                    }]
+                    };
+                a = JSON.stringify(a);
+                js.deleteSceneMembers(a);
+        }
+        function f31(){
+            var a = {
+                    "table_group":[{
+                            "gateway_id":"00000001007e170a",
+                            "group_name":"jerry_group_0629"
+                        }]
+                    };
+                a = JSON.stringify(a);
+                js.createGroup(a);
+        }
+        function f32(){
+            var a = {
+                    "table_group":[{
+                            "group_guid":"1862bb71ec03426ab89a12124b97361e",
+                            "gateway_id":"00000001007e170a"
+                        }]
+                    };
+                a = JSON.stringify(a);
+                js.deleteGroup(a);
+        }
+C
+          function f33(){
+                    var a = {
+                            "table_group_members":[{
+                                    "table_group_guid":"4d6104a3f026409c9bc5d20aa15324c7",
+                                    "group_addr":"ff15::101d",
+                                    "device_addr":"fd04:bd3:80e8:3:215:8d00:32:c4bd",
+                                    "device_guid":"5583D3A1CC8C4C7E84BCBFAB2B626D66",
+                                    "gateway_id":"00000001007e170a",
+                                    "device_name":"00158d000032c4bd"
+                                }]
+                            };
+                        a = JSON.stringify(a);
+                        js.addGroupMember(a);
+                }
+
+          function f34(){
+                    var a = {
+                            "table_group_members":[{
+                                    "group_addr":"ff15::101d",
+                                    "device_addr":"fd04:bd3:80e8:3:215:8d00:32:c4bd",
+                                    "gateway_id":"00000001007e170a"
+                                }]
+                            };
+                        a = JSON.stringify(a);
+                        js.deleteGroupMember(a);
+                }
+
+        function f35(){
+                    var a = {
+                        "table_region_group":[{
+                             "region_guid":"f91b90981d404e7bbec90bf3a8d42d0a",
+                             "table_group_guid":"e997b5446c864acab07dfff7999ebbf8",
+                            "group_addr":"ff15::101d",
+                            "group_name":"jerry_group",
+                            "gateway_id":"00000001007e170a"
+                        }
+                        ]
+                        };
+                        a = JSON.stringify(a);
+                        js.addRegionGroup(a);
+                }
+                function f140(){
+                            var a = {
+                                "user_id":"12345667",
+                                "table_group_members":[{
+                                     "table_group_guid":"a362b21fd2eb433c8cd5104280864211",
+                                    "gateway_id":"00000001007e170a"
+                                }
+                                ]
+                                };
+                                a = JSON.stringify(a);
+                                js.queryGroupMemberInfos(a);
+                        }
+                function f170(){
+                            var a = {
+                                "table_scene_members":[{
+                                     "table_scene_guid":"cfb66431883a4522a6619042ec939f1a",
+                                    "gateway_id":"00000001007e170a"
+                                }
+                                ]
+                                };
+                                a = JSON.stringify(a);
+                                js.querySceneMembers(a);
+                        }
+                function f36(){
+                         var a = {
+                            "table_region_group":[{
+                                 "region_guid":"f91b90981d404e7bbec90bf3a8d42d0a",
+                                 "table_group_guid":"e997b5446c864acab07dfff7999ebbf8",
+                                 "gateway_id":"00000001007e170a"
+                            }
+                            ]
+                            }
+                                a = JSON.stringify(a);
+                                js.deleteRegionGroup(a);
+                        }
+
+
+                function f37(){
+                         var a = {
+                            "table_region_scene":[{
+                                 "region_guid":"7281a0b4bfe9440aade42a5035aaaf65",
+                                 "table_scene_guid":"55aaa21b85a842deb91d52fff2d0875d",
+                                 "gateway_id":"00000001007e170a"
+                            }
+                            ]
+                            }
+                                a = JSON.stringify(a);
+                                js.deleteRegionScene(a);
+                        }
+
+                function f38(){
+                         var a = {
+                            "table_region_scene":[{
+                                "region_guid":"f91b90981d404e7bbec90bf3a8d42d0a",
+                                "table_scene_guid":"ad20ba37cb28441eb059efb367bc41d5",
+                                "gateway_id":"00000001007e170a",
+                                "scene_addr":"ff15::a00e",
+                                "scene_name":"jerry_Scene"
+                            }]
+                            };
+                                a = JSON.stringify(a);
+                                js.addRegionScene(a);
+                        }
+
+
+    function GetUserInfoCallBack (result){
+        alert(result);
+    }
+
+    function GetLoginOutCallBack (result){
+        <!--alert(result);-->
+    }
+    function createRegionCallBack (result){
+        alert(result);
+    }
+    function updateRegionCallBack (result){
+        alert(result);
+    }
+    function queryRegionInfoCallBack (result){
+        alert(result);
+    }
+    function deleteRegionCallBack (result){
+        alert(result);
+    }
+    function updateRegionGroupCallBack (result){
+        alert(result);
+    }
+    function queryRegionGroupCallBack (result){
+        alert(result);
+    }
+
+    function queryRegionDeviceCallBack (result){
+        alert(result);
+    }
+    function queryGroupInfosCallBack (result){
+        alert(result);
+    }
+    function queryRegionSceneCallBack (result){
+        alert(result);
+    }
+    function getSensorCallBack (result){
+        alert(result);
+    }
+    function querySceneCallBack (result){
+        alert(result);
+    }
+    function queryDeviceChannelValueCallBack (result){
+        alert(result);
+    }
+    function queryGroupChannelValueCallBack (result){
+        alert(result);
+    }
+    function queryAllDeviceDetailsCallBack (result){
+        alert(result);
+    }
+    function queryGroupMemberInfosCallBack (result){
+        alert(result);
+    }
+    function querySceneMembersCallBack (result){
+        alert(result);
+    }
+    function createGroupCallBack (result){
+        alert(result);
+    }
+    function createSceneCallBack (result){
+        alert(result);
+    }
+    function deleteGroupCallBack (result){
+        alert(result);
+    }
+    function deleteSceneCallBack (result){
+        alert(result);
+    }
+    function controlRegionCallBack (result){
+        alert(result);
+    }
+    function controlGroupCallBack (result){
+        alert(result);
+    }
+    function controlDeviceCallBack (result){
+        alert(result);
+    }
+    function controlSceneCallBack (result){
+        alert(result);
+    }
+    function addRegionGroupCallBack (result){
+        alert(result);
+    }
+
+    function getChannelListCallBack (result){
+        alert(result);
+    }
+    function getChartParamtersCallBack (result){
+        alert(result);
+    }
+    function addRegionDeviceCallBack (result){
+        alert(result);
+    }
+    function addGroupMemberCallBack (result){
+        alert(result);
+    }
+     function deleteGroupMemberCallBack (result){
+        alert(result);
+    }
+     function deleteRegionGroupCallBack (result){
+        alert(result);
+    }
+   function addSceneMembersCallBack (result){
+        alert(result);
+    }
+    function addRegionSceneCallBack (result){
+        alert(result);
+    }
+    function deleteRegionSceneCallBack (result){
+        alert(result);
+    }
+   function deleteRegionDeviceCallBack (result){
+        alert(result);
+    }
+    function deleteSceneMembersCallBack (result){
+        alert(result);
+    }
+  function getGatewayIDListCallBack (result){
+        alert(result);
+    }
+
+</script>
+
+<input name="button" type="button" onClick="f0()" value="获取用户配置网关列表"/><br>
+<input name="button" type="button" onClick="f1()" value="获取个人信息"/><br>
+<input name="button" type="button" onClick="f2()" value="注销"/><br>
+<input name="button" type="button" onClick="f3()" value="给标题"/><br>
+<input name="button" type="button" onClick="f4()" value="创建区域"/><br>
+<input name="button" type="button" onClick="f5()" value="更新区域"/><br>
+<input name="button" type="button" onClick="f6()" value="查询区域"/><br>
+<input name="button" type="button" onClick="f7()" value="删除区域"/><br>
+<input name="button" type="button" onClick="f8()" value="添加区域设备"/><br>
+<input name="button" type="button" onClick="f9()" value="隐藏返回按钮"/><br>
+<input name="button" type="button" onClick="f10()" value="删除区域设备"/><br>
+<input name="button" type="button" onClick="f11()" value="修改区域设备"/><br>
+<input name="button" type="button" onClick="f12()" value="查询区域组"/><br>
+<input name="button" type="button" onClick="f13()" value="查询区域设备"/><br>
+<input name="button" type="button" onClick="f130()" value="查询区域通道"/><br>
+<input name="button" type="button" onClick="f14()" value="查询组通道"/><br>
+<input name="button" type="button" onClick="f140()" value="查询组成员"/><br>
+<input name="button" type="button" onClick="f15()" value="查询区域场景"/><br>
+<input name="button" type="button" onClick="f16()" value="查询传感器"/><br>
+<input name="button" type="button" onClick="f17()" value="查询场景详情"/><br>
+<input name="button" type="button" onClick="f170()" value="查询场景成员"/><br>
+<input name="button" type="button" onClick="f18()" value="查询统计图数据"/><br>
+<input name="button" type="button" onClick="f19()" value="根据设备查询设备通道"/><br>
+<input name="button" type="button" onClick="f21()" value="根据组查询设备通道"/><br>
+<input name="button" type="button" onClick="f20()" value="查询网关下所有设备表"/><br>
+<input name="button" type="button" onClick="f22()" value="控制区域设备开关"/><br>
+<input name="button" type="button" onClick="f23()" value="控制组"/><br>
+<input name="button" type="button" onClick="f24()" value="控制设备"/><br>
+<input name="button" type="button" onClick="f25()" value="控制场景"/><br>
+<input name="button" type="button" onClick="f26()" value="创建场景"/><br>
+<input name="button" type="button" onClick="f27()" value="删除场景"/><br>
+<input name="button" type="button" onClick="f28()" value="添加区域场景"/><br>
+<input name="button" type="button" onClick="f29()" value="添加场景设备"/><br>
+<input name="button" type="button" onClick="f30()" value="删除场景设备"/><br>
+<input name="button" type="button" onClick="f31()" value="创建组"/><br>
+<input name="button" type="button" onClick="f32()" value="删除组"/><br>
+<input name="button" type="button" onClick="f33()" value="添加组设备"/><br>
+<input name="button" type="button" onClick="f34()" value="删除组设备"/><br>
+<input name="button" type="button" onClick="f35()" value="添加区域组"/><br>
+<input name="button" type="button" onClick="f36()" value="删除区域组"/><br>
+<input name="button" type="button" onClick="f37()" value="删除区域场景"/><br>
+<input name="button" type="button" onClick="f38()" value="创建区域场景"/><br>
+
+</body>
+</html> 

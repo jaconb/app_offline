@@ -1,0 +1,27 @@
+<ion-view view-title="New Regional">
+    <ion-content class="padding">
+
+        <div class="list">
+            <div ng-if="lights.length !=0" class="item item-button-right" ng-repeat="light in lights">
+                {{light.device_name}}
+                <button class="button button-balanced" ng-click="apply(light)">Add</button>
+                <!--<button class="button button-assertive" ng-if="light.isAdd" ng-click="AddOrDel(light.device_guid)">Delete</button>-->
+            </div>
+
+            <div ng-if="!lights || lights.length ==0" class="item item-button-right">
+                There is no device
+                <!--<button class="button button-assertive" ng-if="light.isAdd" ng-click="AddOrDel(light.device_guid)">Delete</button>-->
+            </div>
+            <!--<div class="item item-button-right" ng-repeat="num in [1,2,3]">
+                Light{{num}}
+                <button class="button button-balanced" ng-if="!light.isAdd" ng-click="AddOrDel(light.device_guid)">Add</button>
+                <button class="button button-assertive" ng-if="light.isAdd" ng-click="AddOrDel(light.device_guid)">Delete</button>
+            </div>-->
+            <!--<div>-->
+            <!--<button class="button button-block button-balanced" ng-click="apply()">Apply</button>-->
+            <!--</div>-->
+        </div>
+
+    </ion-content>
+</ion-view>
+

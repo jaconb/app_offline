@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    
+     <!--<script data-main="main" src="require.js"></script>-->
+
+
+    <link href="./lib/ionic/css/ionic.min.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="./lib/angular-chart.js/dist/angular-chart.min.css" rel="stylesheet">
+
+
+    <!--<script src="./components/requirejs/require.js" data-main="./js/config.js"></script> -->
+  </head>
+
+  <body ng-app="starter">
+    <!--<div id="loadding" class="loading-container visible active"><div class="loading"><span>Loading...0%</span></div></div>-->
+    <div id="loadding" ><div class="loading"><span>Loading...0%</span></div></div>
+    <script>
+    document.getElementById('loadding').style.visibility="hidden";
+        // window.myLoad = {
+        //     num: 0,
+        //     timeoutID: '',
+        //     returnNum: 1
+        // }
+        // var countLoad = function(returnNum) {　
+            
+        //     document.getElementById('loadding').innerHTML = 'Loading...' + window.myLoad.num++;
+        //     console.log(1232)
+        //     if(window.myLoad.num >= returnNum){
+        //         return;
+        //     }
+        //     return setTimeout("countLoad(" + returnNum + ")",1)
+        // }
+        // window.myLoad.timeoutID = countLoad(window.myLoad.returnNum);
+    </script>
+
+
+    <div ui-view></div>
+    <!-- ionic/angularjs js -->
+    <script src="./lib/ionic/js/ionic.bundle.min.js"></script>
+    <script src="./lib/jquery/dist/jquery.min.js"></script>
+
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <!--<script src="./cordova.js"></script>-->
+    <script src="./lib/Highcharts-4.2.5/js/highcharts.js"></script>
+    <script src="./lib/Highcharts-4.2.5/js/modules/no-data-to-display.src.js"></script>
+
+    <!-- your app's js -->
+    <script src="./app.js"></script>
+    <script src="./router.js"></script>
+    <script src="./services/services.js"></script>
+    
+    <script src="./controllers/regionCtrl.js"></script>
+    <script src="./controllers/configureCtrl.js"></script>
+    <script src="./controllers/userCtrl.js"></script>
+    <script src="./controllers/region_detail_chart.js"></script>
+  </body>
+
+  <script>
+    <!--window.appUrlLoad = function(){-->
+      <!--//去一个地址-->
+      <!--window.location = "file:///android_asset/offline_app/index.html#/configure"  + window.url;-->
+    <!--}-->
+
+    function appUrlLoad(fileUrl){
+          window.location = "file://" + fileUrl + "#/configure" + window.url;
+      }
+  </script>
+</html>

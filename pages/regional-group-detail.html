@@ -1,0 +1,21 @@
+<ion-view view-title="Group Detail"> 
+    <ion-content>
+
+        <div class="item">
+            <div style="float: right;">
+                <button class="button button-balanced" ng-click="ctrlGroupOn()">On</button>
+                <button class="button button-assertive" ng-click="ctrlGroupOff()">Off</button>
+            </div>
+        </div>
+        
+        <div class="list" ng-repeat="channel in channelList">
+            <div class="item range range-positive">
+                {{channel.channel_name}}
+                <!--<i class="icon ion-ios-sunny-outline"></i>-->
+                    <input type="range" name="volume" min="0" max="100" ng-model="channel.channel_value">{{channel.channel_value}}%
+                <i class="icon ion-ios-sunny"></i>
+            </div>
+        </div>
+        <button ng-if="channelList.length != 0" class="button button-balanced button-full" ng-click="ctrlChannel(channelList)">apply</button>
+    </ion-content>
+</ion-view>

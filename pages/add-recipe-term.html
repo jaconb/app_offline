@@ -1,0 +1,35 @@
+<ion-view view-title="Add Term">
+    <ion-content class="padding">
+       <div class="list">
+            <label class="item item-input">
+                <input type="text" placeholder="Sensor Name">
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Term
+                </div>
+                <select>
+                    <option>Term1</option>
+                    <option selected>Term2</option>
+                    <option>Term3</option>
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Scope
+                </div>
+                <select>
+                    <option>&gt;</option>
+                    <option>=</option>
+                    <option>&lt;</option>
+                </select>
+            </label>
+
+            <label class="item item-input">
+                <input type="text" placeholder="Value">
+            </label>
+            <button class="button button-block button-balanced" ng-click="toNewGroup()">Apply</button>
+        </div>
+    </ion-content>
+</ion-view>
+

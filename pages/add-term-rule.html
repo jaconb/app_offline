@@ -1,0 +1,24 @@
+<ion-view view-title="Add Rule">
+    <ion-content class="padding">
+       <div class="list">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Device <!-- 下个阶段要改成 Sensor -->
+                </div>
+                <select ng-model="my.device" ng-options="device.device_name for device in deviceList" ng-change="deviceChange()"></select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Channel
+                </div>
+                <select ng-model="my.channel" ng-options="channel.channel_name for channel in channelList"></select>
+            </label>
+
+            <label class="item item-input">
+                <input type="text" placeholder="Value" ng-model="my.putVaule">
+            </label>
+            <button class="button button-block button-balanced" ng-click="addRule()">Apply</button>
+        </div>
+    </ion-content>
+</ion-view>
+

@@ -1,0 +1,19 @@
+<ion-view view-title="Scene">
+    <ion-content>
+
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+        <ion-list>
+            <div class="list list-inset">
+                <ion-item class="item item-icon-right" ng-repeat="scene in sceneList" type="item-text-wrap" ng-click="toSceneDetail(scene)">
+                    <h2>{{scene.scene_name}}</h2>
+                    <i class="icon ion-chevron-right icon-accessory"></i>
+                </ion-item>
+
+                <ion-item ng-if="!sceneList || sceneList.length == 0" class="item item-icon-right">
+                    <h2>There is no scene</h2>
+                </ion-item>
+            </div>
+            <!--<button class="button button-block button-balanced" ng-click="toNewGroup()">Apply</button>-->
+        </ion-list>
+    </ion-content>
+</ion-view>

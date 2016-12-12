@@ -1,0 +1,45 @@
+<ion-view view-title="Term Setting">
+    <ion-content class="padding">        
+        <!--<ion-item class="item item-icon-right" ng-click="">
+                Term1
+            <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>-->
+        
+        <div class="list">
+            <a class="item item-divider item-icon-right" ng-click="toAddRule()">
+                Rules
+                <span class="item-note">
+                    Add Rules
+                </span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </a>
+
+            <a class="item" ng-repeat="rule in ruleList">
+                <h2>Table_device_guid:{{rule.table_device_guid}}</h2>
+                <p>Channel_type:{{rule.channel_type}}</p>
+                <p>Compare_val:{{rule.compare_val}}</p>
+            </a>
+            <a class="item item-divider item-icon-right" ng-click="toAddAction()">
+                Sequence
+                <span class="item-note">
+                    Add Sequence
+                </span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </a>
+
+            <a class="item item-icon-right" ng-repeat="action in actionList" ng-click="toActionDetail(action)">
+                <h2>Sequence:{{action.control_number}}</h2>
+                <p>Control_time:{{action.control_time}}</p>
+                
+                <i class="icon ion-chevron-right icon-accessory"></i>
+                <!--<div>
+                  main_table_name: {{main_table_name}} // 吧 'teable_' 去除
+                  gateway_id: {{gateway_id}}
+                  m_value: {{m_value}}
+                </div>-->
+            </a>
+        </div>
+        
+    </ion-content>
+</ion-view>
+

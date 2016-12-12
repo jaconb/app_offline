@@ -1,0 +1,16 @@
+<ion-view view-title="Group"> 
+    <ion-content>
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+
+        <div class="list list-inset padding">
+            <ion-item ng-if="groupList.length != 0" class="item item-icon-right" ng-repeat="group in groupList" type="item-text-wrap" ng-click="toGroupDetail(group)">
+                <h2>{{group.group_name}}</h2>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+
+            <ion-item ng-if="!groupList || groupList.length == 0" class="item item-icon-right">
+                <h2>There is no group</h2>
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>

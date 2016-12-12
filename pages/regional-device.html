@@ -1,0 +1,31 @@
+<ion-view view-title="Regional Device"> 
+    <ion-content>
+        <div class="list device">
+            
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Light
+                </div>
+                <select ng-model="my.device" ng-options="device.device_name for device in devices" ng-change="deviceChange()"></select>
+            </label>
+
+        </div>
+
+        <div class="item">
+            <div style="float: right;">
+                <button class="button button-balanced" ng-click="ctrlDeviceOn()">On</button>
+                <button class="button button-assertive" ng-click="ctrlDeviceOff()">Off</button>
+            </div>
+        </div>
+        
+        <div class="list" ng-repeat="channel in my.device_channel">
+            <div class="item range range-positive">
+                {{channel.channel_name}}:
+                <!--<i class="icon ion-ios-sunny-outline"></i>-->
+                    <input type="range" name="volume" min="0" max="100" step="1" ng-model="channel.channel_value">{{channel.channel_value}}%
+                <i class="icon ion-ios-sunny"></i>
+            </div>
+        </div>
+        <button class="button button-full button-balanced" ng-click="ctrlChannel(my.device_channel)">apply</button>
+    </ion-content>
+</ion-view>

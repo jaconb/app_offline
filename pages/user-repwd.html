@@ -1,0 +1,23 @@
+<ion-view view-title="RePassword">
+  <ion-content>
+    <div class="list">
+        <!--<label class="item item-input">-->
+            <!--<span class="input-label">Old Password</span>-->
+            <!--<input type="password">-->
+        <!--</label>-->
+        <label class="item item-input">
+            <span class="input-label">New Password</span>
+            <input type="password" ng-model="user.newPwd">
+        </label>
+        <label class="item item-input">
+            <span class="input-label">Repeat Password</span>
+            <input type="password" ng-model="user.repeatPwd">
+        </label>
+        <div class="padding">
+            <button class="button button-block button-balanced" ng-click="repwd()">
+                Apply
+            </button>    
+        </div>
+    </div>
+  </ion-content>
+</ion-view>
